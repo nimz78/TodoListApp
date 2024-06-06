@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css"
+    />
+
+    <style>
+      @import url("https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css");
+
+      body {
+        font-family: "Yekan", "Vazirmatn", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 flex">
+    <!-- Sidebar -->
+    <aside
+      class="flex flex-col justify-between bg-white shadow-lg rounded-lg m-6"
+    >
+      <div class="my-8 px-6 mt-10 flex items-center">
+        <img
+          src="./assets/470A2D4E-ED69-4B29-9DE6-89888A0D541A.JPG"
+          alt="User Profile"
+          class="min-w-20 h-20 rounded-full"
+        />
+        <div class="mr-6 ml-4">
+          <p class="text-gray-800 font-semibold">سلام، نیما</p>
+          <p class="text-gray-500 text-sm">سه‌شنبه، ۵ بهمن ۱۴۰۲</p>
+        </div>
+      </div>
+      <nav class="mt-6">
+        <a
+          href="#"
+          class="flex items-center py-2 p bg-blue-100 text-blue-600 rounded-lg mx-2 px-4 mb-4"
+        >
+          <img src="./assets/home-2.svg" alt="home__icon" class="ml-4" />
+          خانه
+        </a>
+        <a
+          href="#"
+          class="flex items-center py-2 mx-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg mb-4"
+        >
+          <img src="./assets/task-square.svg" alt="task__icon" class="ml-4" />
+          تسک‌ها
+        </a>
+        <a
+          href="#"
+          class="flex items-center py-2 mx-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg mb-4"
+        >
+          <img src="./assets/calendar.svg" alt="calendar__icon" class="ml-4" />
+          تقویم
+        </a>
+        <a
+          href="#"
+          class="flex items-center py-2 mx-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg mb-4"
+        >
+          <img
+            src="./assets/arrange-square-2.svg "
+            alt="arrange__icon"
+            class="ml-4"
+          />
+          گزارشات
+        </a>
+        <a
+          href="#"
+          class="flex items-center py-2 mx-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg mb-4"
+        >
+          <img src="./assets/setting.svg" alt="setting__icon" class="ml-4" />
+          تنظیمات
+        </a>
+        <a
+          href="#"
+          class="flex items-center py-2 mx-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg mb-4"
+        >
+          <img
+            src="./assets/24-support.svg"
+            alt="24support__icon"
+            class="ml-4"
+          />
+          پشتیبانی
+        </a>
+        <a
+          href="#"
+          class="flex items-center py-2 mx-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg mb-4"
+        >
+          <img src="./assets/profile.svg" alt="profile__icon" class="ml-4" />
+          پروفایل
+        </a>
+      </nav>
+      <div class="mt-auto mx-2 px-4">
+        <div class="flex items-center bg-gray-100 p-1 rounded-lg">
+          <div class="flex justify-around w-1/2 p-2 rounded-lg bg-white">
+            <img src="./assets/sun.svg" alt="light__mode__icon" />
+            <a href="">روشن</a>
+          </div>
+
+          <div class="flex item-center justify-around w-1/2 p-2 text-gray-400">
+            <img src="./assets/moon.svg" alt="dark__mode__icon" />
+            <a href="" class="">تاریک</a>
+          </div>
+        </div>
+        <div class="h-0.5 bg-gray-100 my-8"></div>
+        <a
+          href="#"
+          class="flex items-center mb-8 text-gray-600 hover:bg-gray-100 rounded-lg"
+        >
+          <img src="./assets/logout.svg" alt="logout__icon" />
+          خروج
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="w-3/4 p-8">
+      <div class="mt-10">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">تسک‌های امروز</h2>
+        <p class="text-gray-600 mb-4">3 تسک را باید انجام دهید.</p>
+        <button
+          id="addTaskButton"
+          class="text-blue-600 font-bold w-full py-2 border-dashed border-2 rounded-lg flex items-center mb-6"
+        >
+          <img class="mx-4" src="./assets/add.svg" alt="add__icon" />
+          افزودن وظیفه جدید
+        </button>
+        <div
+          id="taskForm"
+          class="border border-gray-200 bg-white shadow-lg rounded-lg p-4 hidden"
+        >
+          <div class="">
+            <input
+              class="text-gray-600 font-bold"
+              placeholder="نام تسک"
+            /><br />
+            <input class="text-sm text-gray-400" placeholder="توضیحات" />
+          </div>
+          <button id="tags" class="my-4" type="button">
+            <img id="tags__icon" src="./assets/Frame 1000005505.svg" alt="" />
+          </button>
+          <div
+            id="addTags"
+            class="flex gap-2 border rounded-lg shadow-lg max-w-max mb-4 p-2 hidden"
+          >
+            <button type="button">
+              <img src="./assets/Frame 1000005473.svg" alt="" />
+            </button>
+            <div class="w-0.5 bg-gray-200"></div>
+            <button type="button">
+              <img src="./assets/Frame 1000005471.svg" alt="" />
+            </button>
+            <div class="w-0.5 bg-gray-200"></div>
+            <button type="button">
+              <img src="./assets/Frame 1000005472.svg" alt="" />
+            </button>
+          </div>
+          <div class="h-0.5 bg-gray-200"></div>
+          <div class="text-left">
+            <button
+              type="button"
+              class="bg-blue-500 text-white mt-4 py-2 px-4 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+            >
+              اضافه کردن تسک
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mb-8">
+          <img
+            src="./assets/Frame 1000005523.svg"
+            alt="Illustration of task management"
+          />
+        </div>
+
+        <h2 class="text-xl font-black text-gray-800 mb-2">تسک‌های انجام شده</h2>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">3</span> تسک انجام شده است.
+        </p>
+        <div class="bg-gray-100 py-2 rounded-lg mb-4 flex items-center">
+          <img src="./assets/Frame 1000005475.svg" alt="" />
+          <img class="mx-2" src="./assets/tick-square.svg" alt="" />
+          <div class="flex items-center min-w-max justify-between w-full">
+            <p class="line-through">خرید میوه و سبزیجات برای خانه</p>
+            <img class="mx-6" src="./assets/Frame 33317 (1).svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>
